@@ -6,9 +6,7 @@ Run metrics from "input/", Example for test dataset:
     
     main('test',0);
 
-Export csv in "output/" (automatically done by main.m), Example: 
-    
-    see_results.m
+This will export a csv in "output/" (main.m automatically runs see_results.m after storing results).
     
 Images, fixation maps and saliency maps should be saved in the following directories (by default):<br/>
     
