@@ -17,7 +17,7 @@ Images, fixation maps and saliency maps should be saved in the following directo
     input/dmaps/DATASET_NAME
     input/smaps/DATASET_NAME/MODEL_NAME
     
-Although only necessary folders for computing saliency metrics are "images", "bmaps", "dmaps" and "smaps". Other metrics require region binary masks "mmaps" or scanpaths ("scanpaths" for GT, "smaps/DATASET_NAME/MODEL_NAME/scanpaths" for model scanpaths).<br/>
+Although only necessary folders for computing saliency metrics are "images", "bmaps", "dmaps" and "smaps". Other metrics require region binary masks "mmaps" or scanpaths ("input/smaps/DATASET_NAME/scanpaths" for GT, "input/smaps/DATASET_NAME/MODEL_NAME/scanpaths" for model scanpaths).<br/>
 To run any dataset, copy your dataset files and make sure you have the same folder structure as in "test".<br/>
    
 # Run Saliency models #
