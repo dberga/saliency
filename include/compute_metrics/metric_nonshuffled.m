@@ -29,6 +29,7 @@ function [ score_mean, score_std , score_all,roc_all, score_submetric] = metric_
                     if any(vertcat(strfind(comparison_type,'mmap')))
                         mmap = im2double(imread([params_folder.mmaps_subfolder '/' params_folder.filenames_noext_cell{k} '.' params_folder.mmap_extension])); 
                         mmap = normalize_minmax(mmap);
+                        if size(mmap,3)>1, mmap=rgb2gray(mmap); end
                     end
 
                     if any(vertcat(strfind(comparison_type,'smap')))
@@ -61,65 +62,67 @@ function [ score_mean, score_std , score_all,roc_all, score_submetric] = metric_
                                 [score] = feval(metric,smap,bmap);
                             end
                          case 'smap-mmap'
-                            [score] = feval(metric,smap,mmap);
+                            [score] = feval(metric,smap,mmap); %[score,~,score_sub]
                         case 'smap-dmap'
-                            [score] = feval(metric,smap,dmap);
+                            [score] = feval(metric,smap,dmap); %[score,~,score_sub]
                         case 'scanpath_single'
-                            [score,~,score_sub] = feval(metric,scanpath_predicted);
+                            [score,~,score_sub] = feval(metric,scanpath_predicted); %[score,~,score_sub]
                         case 'scanpath_saccades_single'
-                            [score,~,score_sub] = feval(metric,scanpath_predicted);
+                            [score,~,score_sub] = feval(metric,scanpath_predicted); %[score,~,score_sub]
                          case 'scanpath-mmap'
-                            [score,score_sub] = feval(metric,scanpath_predicted,mmap);
+                            [score,score_sub] = feval(metric,scanpath_predicted,mmap); %[score,~,score_sub]
                          case 'scanpath-scanpath'
-                            [score,~,score_sub] = feval(metric,scanpath_predicted,scanpath);
+                            [score,~,score_sub] = feval(metric,scanpath_predicted,scanpath); %[score,~,score_sub]
                          case 'scanpath-pp_scanpath'
-                            [score,~,score_sub] = feval(metric,scanpath_predicted,scanpath);
+                            [score,~,score_sub] = feval(metric,scanpath_predicted,scanpath); %[score,~,score_sub]
                          case 'scanpath-gs_scanpath'
                              [tok1,tok2] = strtok(params_folder.scanpaths_subfolder,'gbg'); gaze = str2num(tok2(1,5:end));
-                            [score,~,score_sub] = feval(metric,scanpath_predicted,scanpath,gaze);
+                            [score,~,score_sub] = feval(metric,scanpath_predicted,scanpath,gaze); %[score,~,score_sub]
                          case 'scanpath-scanpath-scanpath_next-gaze'
                             [tok1,tok2] = strtok(params_folder.scanpaths_subfolder,'gbg'); gaze = str2num(tok2(1,5:end));
                             scanpaths_subfolder_next = [tok1 tok2(1,1:4) num2str(gaze+1)];
                             if exist([scanpaths_subfolder_next '/' params_folder.filenames_noext_cell{k} '.' params_folder.scanpath_extension],'file')
                                 scanpath_next = load([scanpaths_subfolder_next '/' params_folder.filenames_noext_cell{k} '.' params_folder.scanpath_extension]); scanpath_next = scanpath_next.scanpath;
-                                [score,~,score_sub] = feval(metric,scanpath_predicted,scanpath,scanpath_next,gaze);
+                                [score,~,score_sub] = feval(metric,scanpath_predicted,scanpath,scanpath_next,gaze); %[score,~,score_sub]
                             else
                                 score = NaN;
+                                score_sub=NaN;
                             end
                          case 'scanpath-scanpath_saccades'
-                            [score,~,score_sub] = feval(metric,scanpath_predicted,scanpath);
+                            [score,~,score_sub] = feval(metric,scanpath_predicted,scanpath); %[score,~,score_sub]
                           case 'scanpath_saccades-pp_scanpath'
-                            [score,~,score_sub] = feval(metric,scanpath_predicted,scanpath);
+                            [score,~,score_sub]= feval(metric,scanpath_predicted,scanpath); %[score,~,score_sub]
                          case 'scanpath_saccades-scanpath_saccades'
-                            [score,~,score_sub] = feval(metric,scanpath_predicted,scanpath);
+                            [score,~,score_sub]= feval(metric,scanpath_predicted,scanpath); %[score,~,score_sub]
                         case 'scanpath_saccades-gs_scanpath'
                             [tok1,tok2] = strtok(params_folder.scanpaths_subfolder,'gbg'); gaze = str2num(tok2(1,5:end));
-                            [score,~,score_sub] = feval(metric,scanpath_predicted,scanpath,gaze);
+                            [score,~,score_sub]= feval(metric,scanpath_predicted,scanpath,gaze); %[score,~,score_sub]
                          case 'scanpath-scanpath-gaze'
                             [tok1,tok2] = strtok(params_folder.scanpaths_subfolder,'gbg'); gaze = str2num(tok2(1,5:end));
-                            [score,~,score_sub] = feval(metric,scanpath_predicted,scanpath,gaze);
+                            [score,~,score_sub] = feval(metric,scanpath_predicted,scanpath,gaze); %[score,~,score_sub]
                          case 'scanpath-scanpath_saccades-scanpath_next-gaze'
                             [tok1,tok2] = strtok(params_folder.scanpaths_subfolder,'gbg'); gaze = str2num(tok2(1,5:end));
                             scanpaths_subfolder_next = [tok1 tok2(1,1:4) num2str(gaze+1)];
                             if exist([scanpaths_subfolder_next '/' params_folder.filenames_noext_cell{k} '.' params_folder.scanpath_extension],'file')
                                 scanpath_next = load([scanpaths_subfolder_next '/' params_folder.filenames_noext_cell{k} '.' params_folder.scanpath_extension]); scanpath_next = scanpath_next.scanpath;
-                                [score,~,score_sub] = feval(metric,scanpath_predicted,scanpath,scanpath_next,gaze);
+                               [score,~,score_sub]= feval(metric,scanpath_predicted,scanpath,scanpath_next,gaze); %[score,~,score_sub]
                             else
                                 score = NaN;
+                                score_sub=NaN;
                             end
                          case 'scanpath-scanpath_saccades-gaze'
                             [tok1,tok2] = strtok(params_folder.scanpaths_subfolder,'gbg'); gaze = str2num(tok2(1,5:end));
-                            [score,~,score_sub] = feval(metric,scanpath_predicted,scanpath,gaze);
+                            [score,~,score_sub]= feval(metric,scanpath_predicted,scanpath,gaze); %[score,~,score_sub]
                     end
-                    score_all(l) = real(score);
-                    try
-                        score_sub_all(l,1:length(score_sub))=score_sub;
-                    catch
+                    score_all(l) = real(score); 
+                    if exist('score_sub','var')
                         try
-                            score_sub_all=score_sub;
+                        score_sub_all(l,1:length(score_sub))=score_sub;
                         catch
-                            score_sub_all(l,:)=NaN;
+                        score_sub_all=score_sub;
                         end
+                    else
+                        score_sub_all(l,:)=NaN;
                     end
 %                     if exist('tp') && exist('fp')
 %                         roc_all=[roc_all; tp,fp];

@@ -1,13 +1,13 @@
 function [ mean_amplitude, std_amplitude, amplitudes ] = samplitude( scanpath , ff_flag)
     if nargin<2, firstfixation_flag_default; end
-    if ff_flag == 1 && size(scanpath,1)>0
+    if ff_flag(1) == 1 && size(scanpath,1)>0
         scanpath(1,:)=[];
     end
     
     if iscell(scanpath)
         [ mean_amplitude, std_amplitude, amplitudes ]=pp_samplitude(scanpath);
     else
-        if ff_flag == 1 && size(scanpath,1)>0
+        if ff_flag(1) == 1 && size(scanpath,1)>0
             scanpath(1,:)=[];
         end
         min_gazes = size(scanpath,1);

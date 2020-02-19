@@ -31,7 +31,7 @@ for g=1:length(gazes)
             else
                 %already calculated
             end
-            if contains(metrics_gazewise{mt}.name,'AUC')>0 && ~isempty(find(n_missing_roc_gazewise==mt)) && isempty(find(n_missing_metrics_gazewise==mt)) %metric found but roc missing
+            if ~isempty(strfind(metrics_gazewise{mt}.name,'AUC')) && ~isempty(find(n_missing_roc_gazewise==mt)) && isempty(find(n_missing_metrics_gazewise==mt)) %metric found but roc missing
                 disp(['Computing  ROC ' metrics_gazewise{mt}.name '... ' ]);
                 [~,~,~,metrics_gazewise{mt}.roc_all(g,:),~] = feval(metrics_gazewise{mt}.type,metrics_gazewise{mt}.function, metrics_gazewise{mt}.baseline_type, metrics_gazewise{mt}.comparison_type,n_evaluations,metrics_gazewise{mt}.trials, metrics_gazewise{mt}.indexes_other,params_folder_gazewise);
             else

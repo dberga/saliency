@@ -105,6 +105,7 @@ for m=1:length(methods_all)
 %         prev = 1;
 %         for idx=1:length(n_metrics_pairwise)
 %             e = n_metrics_pairwise(idx);
+%             try
 %             if isfield(results_method.metrics_pairwise{e},'score')
 %             for pp=1:length(results_method.metrics_pairwise{e}.score)
 %                 pp_SUPERMAT_scores{1,(1*pp)+prev} = [results_method.metrics_pairwise{e}.name ' p' num2str(pp)]; 
@@ -113,6 +114,7 @@ for m=1:length(methods_all)
 %                 pp_SUPERMAT_sdev{m+1,(1*pp)+prev} = num2str(results_method.metrics_pairwise{e}.sdev{pp}); %if isempty(results_method.metrics_pairwise{e}.sdev{pp}) pp_SUPERMAT_sdev{m+1,e+1+(1*pp)} = 0; end
 %             end
 %             prev = prev + length(results_method.metrics_pairwise{e}.score);
+%             end
 %             end
 %         end
         
@@ -125,16 +127,21 @@ for m=1:length(methods_all)
         g_SUPERMAT_sdev{1,1} = 'method';
         g_SUPERMAT_sdev{m+1,1} = methods_all{m}; %name
         
-         prev = 1;
+        prev = 1;
         for idx=1:length(n_metrics_gazewise)
             e = n_metrics_gazewise(idx);
             try
             if isfield(results_method.metrics_gazewise{e},'score')
             for g=1:length(results_method.metrics_gazewise{e}.score)
                 g_SUPERMAT_scores{1,(1*g)+prev} = [results_method.metrics_gazewise{e}.name ' g' num2str(g-1)];
-                g_SUPERMAT_scores{m+1,(1*g)+prev} = num2str(results_method.metrics_gazewise{e}.score{g}); %if isempty(g_SUPERMAT_scores{m+1,e+1+(1*g)}) g_SUPERMAT_scores{m+1,e+1+(1*g)} = 0; end
                 g_SUPERMAT_sdev{1,(1*g)+prev} = [results_method.metrics_gazewise{e}.name ' g' num2str(g)];
-                g_SUPERMAT_sdev{m+1,(1*g)+prev} = num2str(results_method.metrics_gazewise{e}.sdev{g}); %if isempty(g_SUPERMAT_sdev{m+1,e+1+(1*g)}) g_SUPERMAT_sdev{m+1,e+1+(1*g)} = 0; end
+                try
+                    g_SUPERMAT_scores{m+1,(1*g)+prev} = num2str(results_method.metrics_gazewise{e}.score{g}); %if isempty(g_SUPERMAT_scores{m+1,e+1+(1*g)}) g_SUPERMAT_scores{m+1,e+1+(1*g)} = 0; end
+                    g_SUPERMAT_sdev{m+1,(1*g)+prev} = num2str(results_method.metrics_gazewise{e}.sdev{g}); %if isempty(g_SUPERMAT_sdev{m+1,e+1+(1*g)}) g_SUPERMAT_sdev{m+1,e+1+(1*g)} = 0; end
+                catch
+                    g_SUPERMAT_scores{m+1,(1*g)+prev} = num2str(results_method.metrics_gazewise{e}.score(g)); %if isempty(g_SUPERMAT_scores{m+1,e+1+(1*g)}) g_SUPERMAT_scores{m+1,e+1+(1*g)} = 0; end
+                    g_SUPERMAT_sdev{m+1,(1*g)+prev} = num2str(results_method.metrics_gazewise{e}.sdev(g)); %if isempty(g_SUPERMAT_sdev{m+1,e+1+(1*g)}) g_SUPERMAT_sdev{m+1,e+1+(1*g)} = 0; end
+                end
             end
             prev = prev + length(results_method.metrics_gazewise{e}.score);
             end

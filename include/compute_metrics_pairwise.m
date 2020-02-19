@@ -21,7 +21,7 @@
                        %already calculated
                     end
                     
-                    if contains(metrics_pairwise{mt}.name,'AUC')>0 && ~isempty(find(n_missing_roc_pairwise==mt)) && isempty(find(n_missing_metrics_pairwise==mt)) %metric found but roc missing
+                    if strfind(metrics_pairwise{mt}.name,'AUC')>0 && ~isempty(find(n_missing_roc_pairwise==mt)) && isempty(find(n_missing_metrics_pairwise==mt)) %metric found but roc missing
                       disp(['Computing  ROC ' metrics_pairwise{mt}.name '... ' ]);
                       [~,~,~,metrics_pairwise{mt}.roc_all{pp}] = feval(metrics_pairwise{mt}.type,metrics_pairwise{mt}.function, metrics_pairwise{mt}.baseline_type, metrics_pairwise{mt}.comparison_type,n_evaluations,metrics_pairwise{mt}.trials, metrics_pairwise{mt}.indexes_other, params_folder_pairwise);
                     else

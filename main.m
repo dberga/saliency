@@ -86,9 +86,11 @@ methods = unsort_cell(methods); %ables computing several threads without overlap
 
 %LOAD CELL WITH SALIENCY METHODS, DISCARD INCOMPLETE METHODS
 % smaps_cell = cell(length(methods),length(filenames_cell));
+
  n_methods = length(methods);
  m_back=0;
  current_folder=pwd;
+if false
  for m=1:n_methods
      m=m-m_back;
      disp(['Checking ' methods{m} '...']);
@@ -141,6 +143,8 @@ methods = unsort_cell(methods); %ables computing several threads without overlap
          end
      end
  end
+ 
+end
 
 %LOAD CELL WITH DENSITY MAPS GT
 %dmaps_cell = cell(1,length(filenames_cell));
