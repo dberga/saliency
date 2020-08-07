@@ -25,7 +25,7 @@ Run saliency maps from "models/", Example for test dataset:
     get_smaps('models',{'test'});
     
 Before running saliency models, first try to delete them, e.g. "input/smaps/test/SIM"<br/>
-Note: To add another model, make sure each model runs a matlab file with same format (input and output of function) and prefix "saliency_MODEL_NAME" as in "saliency_sim.m". You can also run shell commands through matlab for python-based models. We have included an example code of SIM (Murray et al., 2011, 2013) to make your tests.
+Note: To add another model, make sure each model runs a matlab file with same format (input and output of function) and prefix "saliency_MODEL_NAME" as in "saliency_sim.m". You can also run shell commands through matlab for python-based models. We have included an example code of all saliency models to make your tests (try to run install.sh in every subfolder before running them).
 
 # Download Datasets #
 
