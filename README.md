@@ -29,7 +29,7 @@ Note: To add another model, make sure each model runs a matlab file with same fo
 
 # Download Datasets #
 
-Use the shell commands (download_parse_datasets/DATASET_NAME/download.sh) for downloading and parsing eye-tracking data (images, fixation maps and scanpaths) of previous experiments of Toronto (Bruce & Tsotsos, 2006), MIT1003 (Judd et al., 2009), KTH (Kootstra et al., 2011), CAT2000 Pattern (Borji & Itti, 2015) and SID4VAM (Berga et al., 2019).
+Use the shell commands (download_parse_datasets/DATASET_NAME/download.sh) for downloading and parsing eye-tracking data (images, fixation maps and scanpaths) of previous experiments of Toronto (Bruce & Tsotsos, 2006), MIT1003 (Judd et al., 2009), KTH (Kootstra et al., 2011), CAT2000 Pattern (Borji & Itti, 2015) and SID4VAM (Berga et al., 2019). You can download the saliency maps from [my owncloud](https://owncloud.cvc.uab.es/owncloud/index.php/s/IJLBgMtcBvzH4vU).
     
 # This is a fork of official MIT metrics code #
 
