@@ -36,16 +36,43 @@ You can download the saliency maps from [my owncloud](https://owncloud.cvc.uab.e
 
 # This is a fork of official MIT metrics code #
 
-Code from https://github.com/cvzoya/saliency is found in "include/saliency-master/"
+Forked code from https://github.com/cvzoya/saliency is found in "include/saliency-master/"
 
+This specific benchmark is part of work done in the following papers, please cite:
+```
+@inproceedings{9008799,
+    author={Berga, David and Vidal, Xosé Ramón Fernández and Otazu, Xavier and Pardo, Xosé M.},
+    booktitle={2019 IEEE/CVF International Conference on Computer Vision (ICCV)}, 
+    title={SID4VAM: A Benchmark Dataset With Synthetic Images for Visual Attention Modeling}, 
+    year={2019},
+    volume={},
+    number={},
+    pages={8788-8797},
+    doi={10.1109/ICCV.2019.00888}
+}
+@article{10.1162/neco_a_01464,
+    author = {Berga, David and Otazu, Xavier},
+    title = "{A Neurodynamic Model of Saliency Prediction in V1}",
+    journal = {Neural Computation},
+    volume = {34},
+    number = {2},
+    pages = {378-414},
+    year = {2022},
+    month = {01},
+    issn = {0899-7667},
+    doi = {10.1162/neco_a_01464},
+    url = {https://doi.org/10.1162/neco\_a\_01464},
+    eprint = {https://direct.mit.edu/neco/article-pdf/34/2/378/1982874/neco\_a\_01464.pdf},
+}
+```
 Various code related to the MIT saliency benchmark website http://saliency.mit.edu will be found there. 
 Please contact saliency@mit.edu with any questions.
 If you use any of this code, please cite: 
-<pre>
+```
 @article{salMetrics_Bylinskii,
     title    = {What do different evaluation metrics tell us about saliency models?},
     author   = {Zoya Bylinskii and Tilke Judd and Aude Oliva and Antonio Torralba and Fr{\'e}do Durand},
     journal  = {arXiv preprint arXiv:1604.03605},
     year     = {2016}
 }
-</pre>
+```
