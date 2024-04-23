@@ -1,0 +1,3 @@
+[submodule "models/NSWAM"]
+	path = models/NSWAM
+	url = https://github.com/dberga/NSWAM.git
