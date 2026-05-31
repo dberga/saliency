@@ -36,6 +36,10 @@ You can download the saliency maps from [Here](https://drive.google.com/drive/fo
 
 * For SID4VAM synthetic dataset (Berga et al., 2018, 2019), download all data (images and ground truth) [Here](https://drive.google.com/drive/folders/11VYqWsy0AY1aO7IJYqs_7ITJW8d-n5wi?usp=sharing).
 
+# Generate Synthetic Images with Salient Targets #
+
+To synthesize your own dataset or image samples of pop-out/conspicuous targets (also their binary masks), check [SIG4VAM (Synthetic Image Generator for Visual Attention Modeling)](https://github.com/dberga/sig4vam).
+
 # This is a fork of official MIT metrics code #
 
 Forked code from https://github.com/cvzoya/saliency is found in "include/saliency-master/"
