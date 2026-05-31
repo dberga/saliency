@@ -29,28 +29,54 @@ Note: To add another model, make sure each model runs a matlab file with same fo
 
 # Download Datasets #
 
-Download GT: Use the shell commands (download_parse_datasets/DATASET_NAME/download.sh) for downloading and moving eye-tracking data (images, binary fixation maps, fixation density maps and scanpaths) of previous experiments of Toronto (Bruce & Tsotsos, 2006), MIT1003 (Judd et al., 2009), KTH (Kootstra et al., 2011), CAT2000 Pattern (Borji & Itti, 2015) and SID4VAM (Berga et al., 2019).\
-(or) Download and parse GT: [Here](https://owncloud.cvc.uab.es/owncloud/index.php/s/QKS5nlGtxFzl9fX) are the parsers for ground truth data for each raw data from previous datasets.\
-(or) Download the already parsed ground truth: [Here](https://owncloud.cvc.uab.es/owncloud/index.php/s/4OI7yRO5TZddBTO)\
-You can download the saliency maps from [my owncloud](https://owncloud.cvc.uab.es/owncloud/index.php/s/IJLBgMtcBvzH4vU).
+* Download datasets' GT: Use the shell commands (download_parse_datasets/DATASET_NAME/download.sh) for downloading and moving eye-tracking data (images, binary fixation maps, fixation density maps and scanpaths) of previous experiments of Toronto (Bruce & Tsotsos, 2006), MIT1003 (Judd et al., 2009), KTH (Kootstra et al., 2011), CAT2000 Pattern (Borji & Itti, 2015).\
+(or) Download and parse GT: [Here](https://drive.google.com/drive/folders/1Gur2DwPdOB7xBJNWCkiFaDCvqWY-mx3y?usp=sharing) are the parsers for ground truth data for each raw data from previous datasets.\
+(or) Download the already parsed ground truth: [Here](https://drive.google.com/drive/folders/11W_wV_HCFfWEghzpW7kK3ikSmrrogne1?usp=sharing)\
+You can download the saliency maps from [Here](https://drive.google.com/drive/folders/1yPJyHRD2tHuqYAvlJJCgt0vn7njgby0g?usp=sharing).
+
+* For SID4VAM synthetic dataset (Berga et al., 2018, 2019), download all data (images and ground truth) [Here](https://drive.google.com/drive/folders/11VYqWsy0AY1aO7IJYqs_7ITJW8d-n5wi?usp=sharing).
 
 # This is a fork of official MIT metrics code #
 
 Forked code from https://github.com/cvzoya/saliency is found in "include/saliency-master/"
 
-This specific benchmark is part of work done in the following papers, please cite:
+This specific benchmark is part of work done in the following papers, please consider to cite:
 ```
-@inproceedings{9008799,
-    author={Berga, David and Vidal, Xosé Ramón Fernández and Otazu, Xavier and Pardo, Xosé M.},
-    booktitle={2019 IEEE/CVF International Conference on Computer Vision (ICCV)}, 
-    title={SID4VAM: A Benchmark Dataset With Synthetic Images for Visual Attention Modeling}, 
-    year={2019},
-    volume={},
-    number={},
-    pages={8788-8797},
-    doi={10.1109/ICCV.2019.00888}
+
+@inproceedings{Berga2019_ICCV,
+  title = {SID4VAM: A Benchmark Dataset With Synthetic Images for Visual Attention Modeling},
+  url = {http://dx.doi.org/10.1109/ICCV.2019.00888},
+  DOI = {10.1109/iccv.2019.00888},
+  booktitle = {2019 IEEE/CVF International Conference on Computer Vision (ICCV)},
+  publisher = {IEEE},
+  author = {Berga,  David and Vidal,  Xose Ramon Fernandez and Otazu,  Xavier and Pardo,  Xose M.},
+  year = {2019},
+  month = Oct,
+  pages = {8788–8797}
 }
-@article{10.1162/neco_a_01464,
+@article{Berga_2019_VisRes,
+title = "Psychophysical evaluation of individual low-level feature influences on visual attention",
+journal = "Vision Research",
+volume = "154",
+pages = "60 - 79",
+year = "2019",
+issn = "0042-6989",
+doi = "https://doi.org/10.1016/j.visres.2018.10.006",
+url = "http://www.sciencedirect.com/science/article/pii/S0042698918302207",
+author = "David Berga and Xosé R. Fdez-Vidal and Xavier Otazu and Víctor Leborán and Xosé M. Pardo"
+}
+@article{Berga_neurocomputing2020,
+    title = {Modeling bottom-up and top-down attention with a neurodynamic model of V1},
+    journal = {Neurocomputing},
+    volume = {417},
+    pages = {270-289},
+    year = {2020},
+    issn = {0925-2312},
+    doi = {https://doi.org/10.1016/j.neucom.2020.07.047},
+    url = {https://www.sciencedirect.com/science/article/pii/S0925231220311553},
+    author = {David Berga and Xavier Otazu}
+}
+@article{Berga_neco2022,
     author = {Berga, David and Otazu, Xavier},
     title = "{A Neurodynamic Model of Saliency Prediction in V1}",
     journal = {Neural Computation},
