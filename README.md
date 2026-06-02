@@ -26,6 +26,7 @@ Run saliency maps from "models/", Example for test dataset:
     
 Before running saliency models, first try to delete them, e.g. "input/smaps/test/SIM"<br/>
 Note: To add another model, make sure each model runs a matlab file with same format (input and output of function) and prefix "saliency_MODEL_NAME" as in "saliency_sim.m". You can also run shell commands through matlab for python-based models. We have included an example code of all saliency models to make your tests (try to run install.sh in every subfolder before running them).
+<img width="619" height="611" alt="image" src="https://github.com/user-attachments/assets/bdd2d2db-271f-4184-ad81-7e0aea2cae32" />
 
 # Download Datasets #
 
@@ -35,10 +36,13 @@ Note: To add another model, make sure each model runs a matlab file with same fo
 You can download the saliency maps from [Here](https://drive.google.com/drive/folders/1yPJyHRD2tHuqYAvlJJCgt0vn7njgby0g?usp=sharing).
 
 * For SID4VAM synthetic dataset (Berga et al., 2018, 2019), download all data (images and ground truth) [Here](https://drive.google.com/drive/folders/11VYqWsy0AY1aO7IJYqs_7ITJW8d-n5wi?usp=sharing).
+<img width="600" height="509" alt="image" src="https://github.com/user-attachments/assets/40406ce0-a299-4bbb-a059-dd22a395e486" />
 
 # Generate Synthetic Images with Salient Targets #
 
 To synthesize your own dataset or image samples of pop-out/conspicuous targets (also their binary masks), check [SIG4VAM (Synthetic Image Generator for Visual Attention Modeling)](https://github.com/dberga/sig4vam).
+
+<img width="624" height="174" alt="image" src="https://github.com/user-attachments/assets/eff7dc7d-b5cb-446c-8808-221248c18e41" />
 
 # This is a fork of official MIT metrics code #
 
